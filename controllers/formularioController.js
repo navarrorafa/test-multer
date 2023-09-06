@@ -6,9 +6,7 @@ const mostrarFormulario = (req, res) => {
   res.render('index');
   
 };
-
-
-const procesarFormulario = (req, res, next) => {
+const procesarFormulario = (req, res) => {
   uploadImagem.single('imagen')(req, res, function(err) {
     if (err) {
       console.error(err);
@@ -16,7 +14,7 @@ const procesarFormulario = (req, res, next) => {
     } else {
       const { nombre, email, mensaje } = req.body;
       const imagen = {
-        data: req.file.buffer,
+        path: req.file.path,
         contentType: req.file.mimetype,
         nombreArchivo: req.file.filename
       };

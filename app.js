@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const indexRoutes = require('./routes/routesMulter');
-const {dbConnect} = require('./utils/connection')
+const {dbConnect} = require('./helpers/connection')
 require('dotenv').config();
 
 
